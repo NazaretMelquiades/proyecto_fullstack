@@ -50,8 +50,8 @@ WHERE user_id = 1
 
 -- 2. ADD FAVORITES
 INSERT INTO favorites (user_id, recipes_id)
-VALUES (1, 'tt0111161'); --example
-RETURNING *:
+VALUES (1, 'tt0111161') --example
+RETURNING *;
 
 -- 3. ELIMINAR FAVORITOS
 DELETE FROM favorites
