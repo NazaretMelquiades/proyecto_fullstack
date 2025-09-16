@@ -1,7 +1,13 @@
-import React from "react";
+import RecipesList from "./RecipesList";
 
 const Main = () => {
-  return <div>Main</div>;
+  return (
+    <main>
+      <h2>Página principal ✅</h2>
+      {/* Descomenta esta línea en la siguiente prueba */}
+      <RecipesList />
+    </main>
+  );
 };
 
 export default Main;
