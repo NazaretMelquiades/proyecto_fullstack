@@ -18,9 +18,13 @@ app.use(morgan(':method :url :status :param[id] - :response-time ms :body'));
 
 // Habilitar rutas
 const recipesRoutes = require('./routes/recipes.routes');
+const favsRoutes = require('./routes/favs.routes');
+const usersRoutes = require('./routes/user.routes');
 
 // Rutas
 app.use('/api', recipesRoutes);
+app.use('/api/favorites', favsRoutes);
+app.use('/api/users', usersRoutes);
 
 // Gestionar ruta inexistente
 app.use(error404);
