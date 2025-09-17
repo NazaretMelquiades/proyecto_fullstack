@@ -1,3 +1,4 @@
+// import FavoritesList from "./FavoritesList";
 import RecipesList from "./RecipesList";
 
 const Main = () => {
@@ -8,6 +9,6 @@ const Main = () => {
       <RecipesList />
     </main>
   );
-};
+}
 
 export default Main;

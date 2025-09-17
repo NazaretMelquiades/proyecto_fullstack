@@ -5,6 +5,7 @@ import RecipesCard from "./RecipesCard";
 const RecipesList = () => {
   const [recipes, setRecipes] = useState([]);
   const [search, setSearch] = useState("");
+  const userId = 1; // usuario fijo
 
   // Carga inicial de todas las recetas
   useEffect(() => {
@@ -39,6 +40,18 @@ const RecipesList = () => {
     if (e.key === "Enter") handleSearch();
   };
 
+  const addFavorite = async ({ user_id, recipes_id }) => {
+    try {
+      await axios.post("http://localhost:3000/api/favorites", {
+        user_id,
+        recipes_id,
+      });
+      console.log("✅ Favorito añadido");
+    } catch (err) {
+      console.error("❌ Error al añadir favorito:", err.response?.data || err);
+    }
+  };
+
   return (
     <div>
       <h3>Lista de recetas</h3>
@@ -55,7 +68,12 @@ const RecipesList = () => {
       <div>
         {recipes.length > 0 ? (
           recipes.map((recipe) => (
-            <RecipesCard key={recipe._id} recipe={recipe} />
+            <RecipesCard
+              key={recipe._id || recipe.id}
+              recipe={recipe}
+              userId={userId}
+              addFavorite={addFavorite}
+            />
           ))
         ) : (
           <p>No hay recetas para mostrar</p>
