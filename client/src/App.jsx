@@ -3,7 +3,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Main from "./components/Main";
 import FavoritesList from "./components/Main/FavoritesList/FavoritesList";
-// import FavoritesList from "./components/FavoritesList";
 
 function App() {
   return (

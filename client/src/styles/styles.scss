@@ -1,0 +1,10 @@
+@use './views/index';
+@use './views/App';
+
+@use './components/Header';
+@use './components/Nav';
+@use './components/RecipesCard';
+@use './components/RecipesList';
+@use './components/FavoritesCard';
+@use './components/FavoritesList';
+@use './components/Footer';
