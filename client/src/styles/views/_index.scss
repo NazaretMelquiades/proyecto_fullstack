@@ -1,0 +1,84 @@
+$Nyanza: #D3F6DB;
+$Non-Photo-Blue: #92D5E6;
+$Eminence: #772D8D;
+$Palatine: #5A0B4D;
+$Light-green: #A1EF8B;
+
+@use '../utils/mixins' as mixins;
+@use '../utils/variables' as variables;
+
+:root {
+    font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+
+    color-scheme: light dark;
+    color: variables.$palatine; // texto principal
+    background-color: variables.$nyanza; // fondo claro
+
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+    font-weight: 500;
+    color: variables.$eminence;
+    text-decoration: inherit;
+}
+
+a:hover {
+    color: variables.$eminence;
+}
+
+body {
+    margin: 0;
+    display: flex;
+    place-items: center;
+    min-width: 320px;
+    min-height: 100vh;
+}
+
+h1 {
+    font-size: 3.2em;
+    line-height: 1.1;
+}
+
+button {
+    border-radius: 8px;
+    border: 1px solid transparent;
+    padding: 0.6em 1.2em;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: inherit;
+    // background-color: $Light-green;
+    cursor: pointer;
+    transition: border-color 0.25s;
+    // color: $Palatine; // texto del botón
+}
+
+button:hover {
+    border-color: $Non-Photo-Blue;
+}
+
+button:focus,
+button:focus-visible {
+    outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        color: $Nyanza;
+        background-color: $Palatine;
+    }
+
+    a:hover {
+        color: $Eminence;
+    }
+
+    button {
+        background-color: $Non-Photo-Blue;
+        color: $Nyanza;
+    }
+}
