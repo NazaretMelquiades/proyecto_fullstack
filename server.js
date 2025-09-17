@@ -11,9 +11,9 @@ dotenv.config();
 const error404 = require('./middlewares/error404');
 const morgan = require('./middlewares/morgan');
 
+app.use(express.json());
 app.use(cors());
 app.use(helmet());
-app.use(express.json());
 
 // Configuración del logger con morgan
 app.use(morgan(':method :url :status :param[id] - :response-time ms :body'));

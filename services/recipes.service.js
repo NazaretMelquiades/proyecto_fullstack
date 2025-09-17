@@ -3,7 +3,7 @@ const Recipes = require('../models/recipes.model');
 
 
 const getAllRecipes = async () => {
-    return await Recipes.find({}, "-_id -__v");
+    return await Recipes.find({}, "-__v");
 };
 
 const getRecipesByName = async (name) => {
@@ -26,7 +26,7 @@ const getRecipesByIngredient = async (ingredient) => {
 const getRecipesById = async (id) => {
     // Si es un ObjectId válido, busca por _id
     if (mongoose.Types.ObjectId.isValid(id)) {
-        return await Recipes.findById(id).select("-__v -_id");
+        return await Recipes.findById(id).select("-__v");
     }
     // Si no, busca por un campo alternativo (opcional)
     return await Recipes.findOne({ recipes_id: id }).select("-__v -_id");
