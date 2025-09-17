@@ -1,0 +1,21 @@
+@use '../utils/mixins' as mixins;
+@use '../utils/variables' as variables;
+
+.footer {
+    background-color: variables.$color-accent;
+    color: variables.$color-background;
+    text-align: center;
+    padding: 1rem;
+
+    p {
+        font-size: 1rem;
+    }
+
+    @include mixins.respond-to(sm) {
+        padding: 0.5rem;
+
+        p {
+            font-size: 0.9rem;
+        }
+    }
+}

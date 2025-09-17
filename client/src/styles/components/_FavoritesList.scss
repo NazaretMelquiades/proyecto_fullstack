@@ -1,0 +1,18 @@
+@use '../utils/mixins' as mixins;
+@use '../utils/variables' as variables;
+
+.recipes-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    background-color: variables.$color-background;
+    padding: 1rem;
+
+    @include mixins.respond-to(md) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include mixins.respond-to(sm) {
+        grid-template-columns: 1fr;
+    }
+}

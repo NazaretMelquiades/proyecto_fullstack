@@ -1,5 +1,6 @@
-@import './variables';
-@import './mixins';
+@use '../utils/mixins' as mixins;
+@use '../utils/variables' as variables;
+
 
 * {
     margin: 0;
@@ -10,8 +11,8 @@
 html,
 body {
     font-family: 'Segoe UI', Roboto, sans-serif;
-    background-color: $nyanza;
-    color: $palatine;
+    background-color: variables.$nyanza;
+    color: variables.$palatine;
 }
 
 a {

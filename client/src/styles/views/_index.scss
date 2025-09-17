@@ -4,14 +4,17 @@ $Eminence: #772D8D;
 $Palatine: #5A0B4D;
 $Light-green: #A1EF8B;
 
+@use '../utils/mixins' as mixins;
+@use '../utils/variables' as variables;
+
 :root {
     font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
     line-height: 1.5;
     font-weight: 400;
 
     color-scheme: light dark;
-    color: $Palatine; // texto principal
-    background-color: $Nyanza; // fondo claro
+    color: variables.$palatine; // texto principal
+    background-color: variables.$nyanza; // fondo claro
 
     font-synthesis: none;
     text-rendering: optimizeLegibility;
@@ -21,12 +24,12 @@ $Light-green: #A1EF8B;
 
 a {
     font-weight: 500;
-    color: $Non-Photo-Blue;
+    color: variables.$eminence;
     text-decoration: inherit;
 }
 
 a:hover {
-    color: $Eminence;
+    color: variables.$eminence;
 }
 
 body {
@@ -49,10 +52,10 @@ button {
     font-size: 1em;
     font-weight: 500;
     font-family: inherit;
-    background-color: $Light-green;
+    // background-color: $Light-green;
     cursor: pointer;
     transition: border-color 0.25s;
-    color: $Palatine; // texto del botón
+    // color: $Palatine; // texto del botón
 }
 
 button:hover {

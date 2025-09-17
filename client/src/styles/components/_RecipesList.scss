@@ -1,0 +1,91 @@
+@use '../utils/mixins' as mixins;
+@use '../utils/variables' as variables;
+
+.favorites-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    background-color: variables.$color-background;
+    padding: 1rem;
+
+    @include mixins.respond-to(lg) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    @include mixins.respond-to(md) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include mixins.respond-to(sm) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.search-bar-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.search_input {
+    font-size: 1rem;
+    padding: 0.7rem 1rem;
+    border-radius: 6px;
+    border: 1px solid variables.$color-background-alt;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 0.5rem;
+    background: #fff;
+    color: variables.$color-text;
+}
+
+.search_button {
+    font-size: 1rem;
+    padding: 0.7rem 1rem;
+    border-radius: 6px;
+    background-color: variables.$palatine;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.search_button:hover {
+    background-color: darken(variables.$palatine, 10%);
+}
+
+@media (min-width: 600px) {
+    .search-bar-container {
+        flex-direction: row;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .search_input {
+        width: 70%;
+        margin-bottom: 0;
+    }
+
+    .search_button {
+        width: 30%;
+        margin-bottom: 0;
+    }
+}
+
+@media (min-width: 1200px) {
+    .search-bar-container {
+        justify-content: center;
+    }
+
+    .search_input,
+    .search_button {
+        max-width: 400px;
+    }
+}

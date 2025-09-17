@@ -1,0 +1,15 @@
+@use '../utils/mixins' as mixins;
+@use '../utils/variables' as variables;
+
+.favorites-card {
+    background-color: variables.$nyanza;
+    color: variables.$color-text;
+    padding: 1.5rem;
+    border: 2px solid variables.$color-accent;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(variables.$color-text, 0.1);
+
+    @include mixins.respond-to(sm) {
+        padding: 1rem;
+    }
+}

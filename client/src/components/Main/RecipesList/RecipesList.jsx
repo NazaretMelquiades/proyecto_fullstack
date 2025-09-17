@@ -56,16 +56,19 @@ const RecipesList = () => {
     <div>
       <h3>Lista de recetas</h3>
       <div>
-        <input
-          type="text"
-          placeholder="Buscar receta..."
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-          onKeyDown={handleKeyDown} // Buscar al pulsar Enter
-        />
-        <button onClick={handleSearch}>Buscar</button>
+        <div className="search-bar-container">
+          <input
+            className="search_input"
+            type="text"
+            placeholder="Buscar receta..."
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            onKeyDown={handleKeyDown} // Buscar al pulsar Enter
+          />
+          <button className="search_button" onClick={handleSearch}>Buscar</button>
+        </div>
       </div>
-      <div>
+      <div className="favorites-list">
         {recipes.length > 0 ? (
           recipes.map((recipe) => (
             <RecipesCard

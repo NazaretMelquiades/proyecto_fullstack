@@ -10,12 +10,17 @@ const RecipesCard = ({ recipe, userId, addFavorite }) => {
   };
 
   return (
-    <div>
-      <h4>{recipe.Name || "Receta sin nombre"}</h4>
-      {recipe.Ingredients && <p>Ingredientes: {recipe.Ingredients.join(", ")}</p>}
-      {recipe.Steps && <p>Pasos: {recipe.Steps.join(" → ")}</p>}
-      {recipe.Images && <img src={recipe.Images} alt={recipe.Name} />}
-      <button onClick={handleAddFavorite}>Añadir a favoritos</button>
+    <div className="recipes-card">
+      <div className="card-content">
+
+        <h4>{recipe.Name || "Receta sin nombre"}</h4>
+        {recipe.Ingredients && <p>Ingredientes: {recipe.Ingredients.join(", ")}</p>}
+        {recipe.Steps && <p>Pasos: {recipe.Steps.join(" → ")}</p>}
+      </div>
+      <div className="card-footer">
+        {recipe.Images && <img className="picture_item" src={recipe.Images} alt={recipe.Name} />}
+        <button onClick={handleAddFavorite}>Añadir a favoritos</button>
+      </div>
     </div>
   );
 };

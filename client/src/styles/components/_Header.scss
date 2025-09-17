@@ -1,0 +1,13 @@
+@use '../utils/mixins' as mixins;
+@use '../utils/variables' as variables;
+
+.header {
+    // background-color: variables.$non-photo-blue;
+    // color: variables.$nyanza;
+    padding: 1rem;
+    text-align: center;
+
+    @include mixins.respond-to(sm) {
+        padding: 0.8rem;
+    }
+}
