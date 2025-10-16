@@ -11,10 +11,10 @@ const signUpUser = async (req, res) => {
     }
 
     try {
-        // 1️⃣ Hashear password
-        const hashedPassword = await bcrypt.hash(password, 10); // 10 salt rounds
+        // Hashear password
+        const hashedPassword = await bcrypt.hash(password, 10);
 
-        // 2️⃣ Guardar usuario en DB
+        // Guardar usuario en DB
         await usersModel.signUpUser({ username, email, password: hashedPassword });
 
         res.status(201).json({
@@ -72,13 +72,13 @@ const logIn = async (req, res) => {
             return res.status(404).json({ message: "User not found" });
         }
 
-        // 1️⃣ Verificar password usando bcrypt
+        // Verificar password usando bcrypt
         const isValid = await bcrypt.compare(password, user.password);
         if (!isValid) {
             return res.status(401).json({ message: "Invalid credentials" });
         }
 
-        // 2️⃣ Marcar logged = true en DB
+        // Marcar logged = true en DB
         const loggedInUser = await usersModel.logIn(email);
 
         res.status(200).json({

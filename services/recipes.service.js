@@ -20,7 +20,7 @@ const getRecipesByIngredient = async (ingredient) => {
     if (!ingredient) return [];
     // Búsqueda parcial y case-insensitive
     return await Recipes.find({ Ingredients: { $regex: ingredient, $options: 'i' } })
-        .select('-__v'); // opcional: excluye __v
+        .select('-__v');
 }
 
 const getRecipesById = async (id) => {

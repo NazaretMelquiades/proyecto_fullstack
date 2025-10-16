@@ -74,12 +74,17 @@ const createRecipe = async (req, res) => {
 
     try {
         const newRecipe = await recipesService.createRecipe(Name, Ingredients, Steps, Images || []);
-        res.status(201).json(newRecipe);
+
+        res.status(201).json({
+            message: '✅ Receta creada con éxito',
+            recipe: newRecipe
+        });
     } catch (err) {
         console.error('ERROR in createRecipe:', err);
         res.status(500).json({ message: `Server error: ${err.message}` });
     }
 };
+
 
 module.exports = {
     getRecipes,

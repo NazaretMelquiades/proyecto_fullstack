@@ -9,7 +9,7 @@ const objectSchema = {
         trim: true
     },
     Ingredients: {
-        type: [String], // ✅ array de strings
+        type: [String],
         required: true,
         validate: {
             validator: function (arr) {
@@ -19,7 +19,7 @@ const objectSchema = {
         }
     },
     Steps: {
-        type: [String], // ✅ array de strings
+        type: [String],
         required: true,
         validate: {
             validator: function (arr) {
@@ -29,8 +29,8 @@ const objectSchema = {
         }
     },
     Images: {
-        type: [String], // ✅ array de URLs (strings)
-        default: [] // si no hay imágenes, array vacío
+        type: [String],
+        default: []
     }
 };
 
