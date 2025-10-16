@@ -47,13 +47,27 @@ const createRecipe = async (
     return await recipes.save();
 };
 
+const deleteRecipe = async (recipeId) => {
+    return await Recipes.findByIdAndDelete(recipeId);
+};
+
+const updateRecipe = async (recipeId, updateData) => {
+    return await Recipes.findByIdAndUpdate(recipeId, updateData, { new: true });
+};
+
+
+
 module.exports = {
     getAllRecipes,
     getRecipesByName,
     getRecipesByIngredient,
     getRecipesById,
-    createRecipe
+    createRecipe,
+    updateRecipe,
+    deleteRecipe
 };
+
+
 
 // createRecipe(
 //     "Pizza Margarita",
