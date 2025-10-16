@@ -76,7 +76,7 @@ const createRecipe = async (req, res) => {
         const newRecipe = await recipesService.createRecipe(Name, Ingredients, Steps, Images || []);
 
         res.status(201).json({
-            message: '✅ Receta creada con éxito',
+            message: 'Recipe created successfully',
             recipe: newRecipe
         });
     } catch (err) {
@@ -85,10 +85,42 @@ const createRecipe = async (req, res) => {
     }
 };
 
+const deleteRecipe = async (req, res) => {
+    try {
+        const recipeId = req.params.id;
+        const deleted = await recipesService.deleteRecipe(recipeId);
+
+        if (!deleted) {
+            return res.status(404).json({ message: "Recipe not found" });
+        }
+
+        res.status(200).json({ message: "Recipe deleted successfully", recipe: deleted });
+    } catch (error) {
+        res.status(500).json({ message: "Internal server error" });
+    }
+};
+
+const updateRecipe = async (req, res) => {
+    try {
+        const recipeId = req.params.id;
+        const updateData = req.body;
+        const updatedRecipe = await recipesService.updateRecipe(recipeId, updateData);
+
+        if (!updatedRecipe) {
+            return res.status(404).json({ message: "Recipe not found" });
+        }
+
+        res.status(200).json({ message: "Recipe updated successfully", recipe: updatedRecipe });
+    } catch (error) {
+        res.status(500).json({ message: "Internal server error" });
+    }
+};
 
 module.exports = {
     getRecipes,
     getRecipesById,
     getRecipesByIngredient,
-    createRecipe
+    createRecipe,
+    updateRecipe,
+    deleteRecipe
 }
