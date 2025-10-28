@@ -1,11 +1,20 @@
+import React from "react";
+import { Route, Routes } from 'react-router-dom';
 import RecipesList from "./RecipesList";
+import FavoritesList from "./FavoritesList"
+import Register from "./Register/Register";
+import Login from "./LogIn/LogIn";
+
 
 const Main = () => {
   return (
     <main>
-      <h2>Bienvenido a Kiwi's Bakery</h2>
-      {/* Descomenta esta línea en la siguiente prueba */}
-      <RecipesList />
+      <Routes>
+        <Route path='/' element={<RecipesList />} />
+        <Route path='/favorites' element={<FavoritesList />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/register' element={<Register />} />
+      </Routes>
     </main>
   );
 }
