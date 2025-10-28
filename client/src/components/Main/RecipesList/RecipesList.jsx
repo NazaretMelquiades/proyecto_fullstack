@@ -25,7 +25,7 @@ const RecipesList = () => {
   const handleSearch = async () => {
     try {
       const res = await axios.get("http://localhost:3000/api/recipes", {
-        params: { Name: search } // ⚡ Aquí pasamos el query param que tu backend espera
+        params: { Name: search }
       });
       setRecipes(res.data || []);
       setSearch('');
